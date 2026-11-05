@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",   // 👈 THIS LINE IS CRITICAL
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,8 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        brand: {
+          DEFAULT: "#0EA5E9",
+          dark:    "#0284C7",
+          light:   "#38BDF8",
+        },
       },
     },
   },
