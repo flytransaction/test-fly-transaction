@@ -1,10 +1,10 @@
+
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  FiHome,
   FiUser,
   FiFileText,
   FiSettings,
@@ -13,13 +13,18 @@ import {
   FiX,
 } from "react-icons/fi";
 import { clearUser } from "@/lib/auth";
+
 const NAV = [
-  { label: "Records",   href: "/dashboard/records",  icon: <FiFileText size={18} /> },
-  { label: "Profile",   href: "/dashboard/profile",  icon: <FiUser size={18} /> },
-  { label: "Settings",  href: "/dashboard/settings", icon: <FiSettings size={18} /> },
+  { label: "Records", href: "/dashboard/records", icon: <FiFileText size={18} /> },
+  { label: "Profile", href: "/dashboard/profile", icon: <FiUser size={18} /> },
+  { label: "Settings", href: "/dashboard/settings", icon: <FiSettings size={18} /> },
 ];
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -54,6 +59,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <nav className="space-y-1">
             {NAV.map((item) => {
               const active = pathname === item.href;
+
               return (
                 <Link
                   key={item.href}
